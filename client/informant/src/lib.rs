@@ -31,6 +31,11 @@ use std::{collections::VecDeque, fmt::Display, sync::Arc, time::Duration};
 
 mod display;
 
+/// Creates a stream that returns a new value every `duration`.
+fn interval(duration: Duration) -> impl Stream<Item = ()> + Unpin {
+	futures::stream::unfold((), move |_| Delay::new(duration).map(|_| Some(((), ())))).map(drop)
+}
+
 /// The format to print telemetry output in.
 #[derive(Clone, Debug)]
 pub struct OutputFormat {
