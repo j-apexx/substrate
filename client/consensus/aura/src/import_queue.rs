@@ -108,6 +108,25 @@ pub struct AuraVerifier<C, P, CIDP, N> {
 	_phantom: PhantomData<fn() -> P>
 }
 
+impl<C, P, CIDP, N> AuraVerifier<C, P, CIDP, N> {
+	pub(crate) fn new(
+		client: Arc<C>,
+		create_inherent_data_providers: CIDP,
+		check_for_equivocation: CheckForEquivocation,
+		telemetry: Option<TelemetryHandle>,
+		compatibility_mode: CompatibilityMode<N>,
+	) -> Self {
+		Self {
+			client,
+			create_inherent_data_providers,
+			check_for_equivocation,
+			telemetry,
+			compatibility_mode,
+			_phantom: PhantomData,
+		}
+	}
+}
+
 impl<C, P, CIDP, N> AuraVerifier<C, P, CIDP, N>
 where
 	CIDP: Send,
