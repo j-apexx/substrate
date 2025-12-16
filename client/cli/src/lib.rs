@@ -77,15 +77,6 @@ pub trait SubstrateCli: Sized {
 			.unwrap_or_else(|| env!("CARGO_PKG_NAME").into())
 	}
 
-	/// Executable file description.
-	fn description() -> String;
-
-	/// Executable file author.
-	fn author() -> String;
-
-	/// Support URL.
-	fn support_url() -> String;
-
 	/// Copyright starting year (x-current year)
 	fn copyright_start_year() -> i32;
 
