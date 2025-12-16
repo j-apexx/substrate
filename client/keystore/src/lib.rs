@@ -49,6 +49,12 @@ pub enum Error {
 	/// Invalid seed
 	#[error("Invalid seed")]
 	InvalidSeed,
+	/// Public key type is not supported
+	#[error("Key crypto type is not supported")]
+	KeyNotSupported(KeyTypeId),
+	/// Keystore unavailable
+	#[error("Keystore unavailable")]
+	Unavailable,
 }
 
 /// Keystore Result
