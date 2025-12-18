@@ -42,19 +42,6 @@ pub enum Error {
 		"Requested public key and public key of the loaded private key do not match. \n
 			This means either that the keystore password is incorrect or that the private key was stored under a wrong public key."
 	)]
-	PublicKeyMismatch,
-	/// Invalid BIP39 phrase
-	#[error("Invalid recovery phrase (BIP39) data")]
-	InvalidPhrase,
-	/// Invalid seed
-	#[error("Invalid seed")]
-	InvalidSeed,
-	/// Public key type is not supported
-	#[error("Key crypto type is not supported")]
-	KeyNotSupported(KeyTypeId),
-	/// Keystore unavailable
-	#[error("Keystore unavailable")]
-	Unavailable,
 }
 
 /// Keystore Result
