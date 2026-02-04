@@ -224,6 +224,9 @@ pub enum ChainType {
 }
 
 impl Default for ChainType {
+	fn default() -> Self {
+		Self::Live
+	}
 }
 
 /// Arbitrary properties defined in chain spec as a JSON object
